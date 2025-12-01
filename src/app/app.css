@@ -1,5 +1,11 @@
-h1 {
-    background-color: orange;
-    font-size: 25px;
+/* dark mode */
+.dark {
+    background-color: black;
     color: white;
+}
+
+/* light mode */
+.light {
+    background-color: white;
+    color: black;
 }

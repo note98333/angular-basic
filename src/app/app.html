@@ -1,1 +1,35 @@
-<img [src]="imageUrl" alt="image">
+<div [class]=" isActive ? 'dark':'light'">
+    <!-- Image src -->
+<img [src]="imageUrl" alt="image" [width]="size+80" [height]="size+50">
+<img [src]="imageUrl" alt="image" [width]="doubleSize()">
+<!-- FunctionShow -->
+<button (click)="showMessage()">ShowMessage</button><br>
+<!-- InputShow -->
+ <p [ngStyle]="{'background-color': 'red','color':'white'}">Hello,  {{username}}</p>
+ <input type="text" [(ngModel)]="username">
+<!-- switch -->
+@switch (username){
+    @case("admin"){
+        <p>Hello Admin</p>
+    }
+    @case("thesst"){
+        <p>Hello Thesst</p>
+    }
+    @default {
+        <p>Please signin</p>
+    }
+}
+<!-- for empty -->
+
+@for (user of data; track user.id){
+    <h2>Id of user: {{user.id}}</h2>
+    <h3 [ngStyle]="myStyle">userName: {{user.name | uppercase}}</h3>
+    <h3>userSalary: {{user.salary | currency}}</h3>
+    <h3>dateLogin: {{user.active | lowercase | date:"fullDate"}}</h3>
+    <hr>
+} @empty {
+    <h3 [ngStyle]="{'color': color}">Information Empty</h3>
+}
+ <button (click)="clearData()">clearData</button>
+ <button (click)="changMode()">{{isActive? "light mode":"dark mode"}}</button>
+</div>
